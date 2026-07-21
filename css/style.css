@@ -105,3 +105,6 @@ html{scroll-padding-top:130px}
   .hero-actions .button-primary,
   .hero-actions .button-ghost{width:min(100%,300px)}
 }
+
+/* Juridische footerlinks blijven ook op smalle schermen leesbaar. */
+.footer-bottom div{flex-wrap:wrap}
