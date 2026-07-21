@@ -93,3 +93,15 @@ html{scroll-padding-top:130px}
   .hero h1{font-size:28px}
   .hero h1 .headline-accent{font-size:24px}
 }
+
+/* Compacte CTA-knoppen op smartphone */
+@media(max-width:620px){
+  .hero-actions{align-items:center}
+  .hero-actions .button-primary{width:min(100%,300px);padding-inline:22px}
+  .hero-actions .button-ghost{width:min(100%,340px)}
+}
+
+@media(max-width:380px){
+  .hero-actions .button-primary{width:min(100%,270px)}
+  .hero-actions .button-ghost{width:min(100%,300px)}
+}
