@@ -1,4 +1,4 @@
-:root{--navy:#092a45;--navy-2:#103b5c;--red:#c82d3d;--red-dark:#a91f2e;--ink:#152b3b;--muted:#61717d;--paper:#fff;--soft:#f3f6f8;--line:#dbe3e8;--shadow:0 20px 50px rgba(9,42,69,.12);--radius:4px;--container:1180px}
+:root{--navy:#063b88;--navy-2:#07569b;--red:#00b847;--red-dark:#009b3c;--cyan:#00a3cf;--ink:#12345b;--muted:#5f7486;--paper:#fff;--soft:#f1f8f7;--line:#d7e7e7;--shadow:0 20px 50px rgba(6,59,136,.13);--radius:4px;--container:1180px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;color:var(--ink);background:var(--paper);font-family:"Segoe UI",Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -11,3 +11,39 @@ a{color:inherit;text-decoration:none} img{max-width:100%} button{font:inherit}.c
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.button,.service-card,.sector-card{transition:none}}
 @media(max-width:900px){.menu-toggle{display:block}.primary-nav{display:none;position:absolute;left:0;right:0;top:82px;background:#fff;padding:22px 20px 28px;box-shadow:0 20px 30px rgba(9,42,69,.12);flex-direction:column;align-items:stretch;gap:4px}.primary-nav.open{display:flex}.primary-nav a{padding:12px}.nav-cta{text-align:center;margin-top:8px}.menu-toggle.active span:nth-child(2){transform:translateY(7px) rotate(45deg)}.menu-toggle.active span:nth-child(3){opacity:0}.menu-toggle.active span:nth-child(4){transform:translateY(-7px) rotate(-45deg)}.hero{min-height:auto}.hero-layout,.expertise-layout,.why-layout,.cta-layout{grid-template-columns:1fr;gap:50px}.hero-layout{padding:75px 0}.hero-card{max-width:580px}.section-heading{grid-template-columns:1fr;gap:20px}.services-grid{grid-template-columns:1fr 1fr}.sector-grid{grid-template-columns:1fr}.strip-items{overflow-x:auto;justify-content:flex-start}.strip-items span{white-space:nowrap}.strip-items span:not(:last-child):after{margin-left:25px}.why-visual{min-height:360px}.footer-main{grid-template-columns:1.5fr 1fr 1fr;gap:35px}}
 @media(max-width:620px){.container{width:min(100% - 28px,var(--container))}.site-header{height:72px}.brand-mark{width:38px;height:38px}.brand-copy strong{font-size:17px}.primary-nav{top:72px}.hero-layout{padding:58px 0}.hero h1{font-size:42px;letter-spacing:-1.7px}.hero-intro{font-size:17px}.hero-actions{flex-direction:column;align-items:stretch}.trust-list{flex-direction:column;gap:7px}.hero-card{padding:24px}.section{padding:78px 0}.services-grid{grid-template-columns:1fr}.service-card{min-height:225px}.expertise-grid{grid-template-columns:1fr}.section-heading h2,.center-heading h2,.expertise-copy h2,.why-copy h2,.cta-section h2{font-size:34px}.why-visual{min-height:310px;padding:30px}.why-visual p{font-size:31px}.cta-section{padding:65px 0}.footer-main{grid-template-columns:1fr;gap:34px}.footer-bottom{align-items:flex-start;flex-direction:column;justify-content:center;gap:7px;padding:18px 0}.strip-items{min-height:64px}.intro-strip{display:none}}
+
+/* Tender Insight merkidentiteit: groen, koningsblauw en cyaan */
+.site-header{height:94px;border-bottom-color:rgba(6,59,136,.1)}
+.site-header.scrolled{box-shadow:0 8px 30px rgba(6,59,136,.1)}
+.brand-logo{display:block;width:205px;height:82px;object-fit:contain}
+.primary-nav>a:not(.nav-cta):after{height:3px;background:linear-gradient(90deg,var(--red),var(--cyan))}
+.hero{background:linear-gradient(135deg,#052e70 0%,#064b91 58%,#0089b6 100%)}
+.hero:after{border-color:rgba(0,184,71,.35);box-shadow:0 0 0 100px rgba(0,163,207,.04),0 0 0 200px rgba(0,184,71,.025)}
+.eyebrow.light,.trust-list span{color:#7ce6aa}
+.hero h1 span:after{background:linear-gradient(90deg,var(--red),var(--cyan))}
+.expertise-section{background:linear-gradient(135deg,#063b88,#075c9e)}
+.expertise-grid span{color:#72e0a3}
+.why-visual:after{background:linear-gradient(135deg,var(--red),var(--cyan))}
+.why-visual span{color:#69dfa0}
+.cta-section{background:linear-gradient(115deg,#00a945 0%,#009c81 48%,#0871b6 100%)}
+.cta-action p{color:#e5fff1}
+.site-footer{background:#042654;color:#b8cfdf}
+.footer-brand{background:#fff;padding:6px 12px;border-radius:3px;width:max-content}
+.footer-brand .brand-logo{width:205px;height:94px}
+@media(max-width:900px){.primary-nav{top:94px}}
+@media(max-width:620px){.site-header{height:78px}.brand-logo{width:150px;height:68px}.primary-nav{top:78px}}
+
+/* Groot transparant logo en lichte footer */
+html{scroll-padding-top:130px}
+.site-header{height:130px;background:#fff}
+.brand-logo{width:330px;height:120px;object-fit:contain;object-position:left center}
+.site-footer{background:#fff;color:var(--muted);border-top:1px solid var(--line)}
+.footer-brand{background:transparent;padding:0;border-radius:0;width:auto}
+.footer-brand .brand-logo{width:330px;height:190px}
+.footer-main h2{color:var(--navy)}
+.footer-main a{color:var(--muted)}
+.footer-main a:hover{color:var(--red)}
+.footer-bottom{color:var(--muted);border-top-color:var(--line)}
+.footer-bottom a:hover{color:var(--navy)}
+@media(max-width:900px){.primary-nav{top:130px}}
+@media(max-width:620px){html{scroll-padding-top:88px}.site-header{height:88px}.brand-logo{width:220px;height:82px}.primary-nav{top:88px}.footer-brand .brand-logo{width:270px;height:160px}}
