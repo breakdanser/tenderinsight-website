@@ -79,3 +79,17 @@ html{scroll-padding-top:130px}
   .hero h1{font-size:32px}
   .hero-intro{font-size:16px}
 }
+
+/* Professionele titelverdeling op smartphone */
+@media(max-width:620px){
+  .hero .eyebrow{font-size:10px;letter-spacing:1.55px;line-height:1.45;margin-bottom:16px}
+  .hero h1{font-size:31px;line-height:1.12;letter-spacing:-.65px;overflow-wrap:normal;word-break:normal;hyphens:none;margin-bottom:22px}
+  .hero h1 .headline-accent{display:block;width:max-content;max-width:100%;font-size:27px;line-height:1.2;white-space:nowrap;overflow-wrap:normal;word-break:keep-all;hyphens:none;margin-top:5px}
+  .hero h1 .headline-accent:after{height:4px;bottom:-6px}
+  .hero-intro{font-size:16px;line-height:1.5}
+}
+
+@media(max-width:380px){
+  .hero h1{font-size:28px}
+  .hero h1 .headline-accent{font-size:24px}
+}
