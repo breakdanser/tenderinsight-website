@@ -32,8 +32,16 @@
 
     <section class="knowledge-section">
       <div class="container">
+        <div class="knowledge-intro">
+          <div><p class="eyebrow">Kennis uit de praktijk</p><h2>Van concrete vraag naar bruikbaar inzicht</h2></div>
+          <p>Deze kennisbank groeit stap voor stap. U vindt hier verdiepende artikels, controlelijsten en praktische aandachtspunten voor de voorbereiding, gunning en opvolging van ICT-contracten.</p>
+        </div>
         <div class="knowledge-tools" aria-label="Artikels zoeken en filteren">
-          <label class="search-field"><span class="sr-only">Zoek in Insights</span><input id="insight-search" type="search" placeholder="Zoek op onderwerp…" autocomplete="off"><span aria-hidden="true">⌕</span></label>
+          <form class="search-field" id="insight-search-form" role="search">
+            <label class="sr-only" for="insight-search">Zoek in Insights</label>
+            <input id="insight-search" type="search" placeholder="Zoek bijvoorbeeld op SLA…" autocomplete="off">
+            <button type="submit" aria-label="Zoeken">⌕</button>
+          </form>
           <div class="filter-list" role="group" aria-label="Filter op categorie">
             <button class="filter-button active" type="button" data-filter="all">Alles</button>
             <button class="filter-button" type="button" data-filter="procurement">ICT Procurement</button>
@@ -42,7 +50,7 @@
           </div>
         </div>
 
-        <p class="result-count" id="result-count" aria-live="polite">3 artikels</p>
+        <div class="result-summary"><p class="result-count" id="result-count" aria-live="polite">3 artikels</p><button class="clear-search" id="clear-search" type="button" hidden>Wis zoekopdracht</button></div>
         <div class="article-grid" id="article-grid">
           <article class="insight-card insight-card-featured" data-category="procurement" data-search="vendor lock-in ict aanbestedingen cloud interoperabiliteit exit strategie">
             <div class="card-top"><span class="category">ICT Procurement</span><span>8 min.</span></div>
@@ -64,6 +72,15 @@
           </article>
         </div>
         <div class="empty-state" id="empty-state" hidden><h2>Geen artikels gevonden</h2><p>Probeer een andere zoekterm of kies een andere categorie.</p></div>
+
+        <section class="quick-guides" aria-labelledby="quick-guides-title">
+          <div class="quick-guides-heading"><p class="eyebrow">Praktische startpunten</p><h2 id="quick-guides-title">Drie vragen die elk ICT-dossier sterker maken</h2></div>
+          <div class="quick-guide-grid">
+            <article><span>01</span><h3>Is de behoefte scherp genoeg?</h3><p>Beschrijf eerst het gewenste resultaat, de gebruikerscontext en de grenzen van de opdracht. Dat voorkomt dat technische voorkeuren te vroeg de oplossing bepalen.</p></article>
+            <article><span>02</span><h3>Is de markt tijdig betrokken?</h3><p>Toets haalbaarheid, concurrentie en mogelijke risico’s vóór de publicatie. Leg keuzes en ontvangen inzichten transparant vast.</p></article>
+            <article><span>03</span><h3>Is de uitvoering bestuurbaar?</h3><p>Maak rollen, prestaties, rapportering, escalatie en exit-afspraken concreet. Een goede gunning is pas waardevol wanneer het contract ook beheersbaar blijft.</p></article>
+          </div>
+        </section>
       </div>
     </section>
   </main>
