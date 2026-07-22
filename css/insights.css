@@ -24,3 +24,10 @@
 .quick-guide-grid p{color:var(--muted);font-size:14px;margin:0}
 @media(max-width:900px){.quick-guides-heading{grid-template-columns:1fr;gap:12px}.quick-guide-grid{grid-template-columns:1fr}.quick-guide-grid article{min-height:auto}}
 @media(max-width:620px){.quick-guides{margin-top:60px;padding-top:45px}.quick-guides-heading h2{font-size:29px}}
+.article-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.insight-card{min-height:325px}
+.article-cta{background:linear-gradient(120deg,var(--navy),#08628f);color:#fff;padding:60px 0}
+.article-cta .container{display:flex;justify-content:space-between;align-items:center;gap:45px}
+.article-cta h2{color:#fff;font-size:32px;line-height:1.2;margin:8px 0 0;max-width:700px}
+@media(max-width:900px){.article-cta .container{align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.article-grid{grid-template-columns:1fr}.article-cta{padding:50px 0}.article-cta h2{font-size:28px}}
