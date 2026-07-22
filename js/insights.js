@@ -22,7 +22,7 @@ function filterInsights() {
     card.hidden = !show;
     if (show) visible += 1;
   });
-  if (resultCount) resultCount.textContent = `${visible} ${visible === 1 ? 'artikel' : 'artikels'}`;
+  if (resultCount) resultCount.textContent = `${visible} ${visible === 1 ? 'gepubliceerd artikel' : 'gepubliceerde artikels'}`;
   if (emptyState) emptyState.hidden = visible !== 0;
   if (clearSearch) clearSearch.hidden = !query && activeFilter === 'all';
 }
