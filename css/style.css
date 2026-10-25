@@ -146,12 +146,14 @@ html{scroll-padding-top:130px}
 .product-status:before{content:"";display:inline-block;width:6px;height:6px;margin-right:7px;background:var(--red);border-radius:50%;vertical-align:1px}
 .product-link{display:inline-flex;align-items:center;gap:8px;margin-top:13px;color:var(--navy);font-size:12px;font-weight:800}
 .product-link:hover,.product-link:focus-visible{color:var(--red)}
+.language-picker{display:flex;align-items:center;margin-left:4px}.language-picker label{font-size:0}.language-picker label:before{content:'🌐';font-size:15px;margin-right:5px}.language-picker select{border:1px solid #b9cbd7;background:#fff;color:var(--navy);padding:7px 24px 7px 8px;font:600 11px "Segoe UI",Arial,sans-serif;cursor:pointer}
 
 @media(max-width:900px){
   .offer-nav-grid{width:100%;overflow-x:auto;grid-template-columns:repeat(3,minmax(240px,1fr));padding-inline:20px}
   .offer-nav a:first-child{border-left:1px solid var(--line)}
   .offer-grid{grid-template-columns:1fr}
   .offer-card{min-height:0}
+  .primary-nav .language-picker{margin:10px 12px 0}.primary-nav .language-picker select{width:100%;padding:11px}
 }
 
 @media(max-width:620px){
