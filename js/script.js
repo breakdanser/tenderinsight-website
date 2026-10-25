@@ -8,7 +8,7 @@ function closeMenu() {
   menuButton.classList.remove('active');
   navigation.classList.remove('open');
   menuButton.setAttribute('aria-expanded', 'false');
-  if (menuLabel) menuLabel.textContent = 'Menu openen';
+  if (menuLabel) menuLabel.textContent = uiLabels[siteLanguage].openMenu;
 }
 
 menuButton?.addEventListener('click', () => {
@@ -16,7 +16,7 @@ menuButton?.addEventListener('click', () => {
   menuButton.classList.toggle('active', !isOpen);
   navigation.classList.toggle('open', !isOpen);
   menuButton.setAttribute('aria-expanded', String(!isOpen));
-  if (menuLabel) menuLabel.textContent = isOpen ? 'Menu openen' : 'Menu sluiten';
+  if (menuLabel) menuLabel.textContent = isOpen ? uiLabels[siteLanguage].openMenu : uiLabels[siteLanguage].closeMenu;
 });
 
 navigation?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
@@ -66,6 +66,12 @@ const navigationLabels = {
   en: { products: 'Products', consultancy: 'Consultancy & Advisory', academy: 'Academy', insights: 'Insights', about: 'About us', contact: 'Contact' }
 };
 
+const uiLabels = {
+  nl: { skip: 'Ga naar de inhoud', openMenu: 'Menu openen', closeMenu: 'Menu sluiten', language: 'Taal', chooseLanguage: 'Kies uw taal' },
+  fr: { skip: 'Aller au contenu', openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu', language: 'Langue', chooseLanguage: 'Choisissez votre langue' },
+  en: { skip: 'Skip to content', openMenu: 'Open menu', closeMenu: 'Close menu', language: 'Language', chooseLanguage: 'Choose your language' }
+};
+
 const pageTranslations = {
   fr: {
     'Tender Insight Academy': 'Tender Insight Académie', 'Geen generieke theorie, maar een gemeenschappelijke taal, toepasbare methoden en oefeningen rond echte ICT-aankoopvraagstukken.': 'Pas de théorie générique, mais un langage commun, des méthodes applicables et des exercices basés sur de véritables enjeux d’achat ICT.',
@@ -96,6 +102,7 @@ const pageTranslations = {
     'Functionele specificaties': 'Spécifications fonctionnelles', 'Selectie en gunning': 'Sélection et attribution', 'SLA, TCO en exit': 'SLA, TCO et sortie',
     'Stakeholders en behoefte': 'Parties prenantes et besoin', 'Markt en oplossingsruimte': 'Marché et espace de solutions', 'Van keuzes naar bestek': 'Des choix au cahier des charges',
     'Bespreek een leertraject': 'Discuter d’un parcours', 'Tender Insights tarieven': 'Tarifs Tender Insights', 'Offerte aanvragen': 'Demander une offre', 'Meest gekozen': 'Le plus choisi',
+    'Volg contracten en raamovereenkomsten op in één overzicht. Iedereen die moet meekijken — aankoop, financiën, IT en directie — krijgt toegang zonder meerprijs.': 'Suivez les contrats et accords-cadres dans une vue unique. Toutes les personnes concernées — achats, finances, IT et direction — y accèdent sans coût supplémentaire.',
     'Basis': 'Base', 'Professioneel': 'Professionnel', 'Eenmalige opstart': 'Démarrage unique', 'In elk pakket': 'Dans chaque formule', 'Onbeperkt gebruikers': 'Utilisateurs illimités',
     'Nederlands, Frans en Engels': 'Néerlandais, français et anglais', 'Alle updates zonder meerprijs': 'Toutes les mises à jour sans supplément',
     'Voor organisaties met een beperkte contractportefeuille en een duidelijke behoefte aan centrale opvolging.': 'Pour les organisations disposant d’un portefeuille contractuel limité et ayant besoin d’un suivi centralisé.',
@@ -105,7 +112,9 @@ const pageTranslations = {
     'Betalen we per gebruiker?': 'Payons-nous par utilisateur ?', 'Waar worden onze gegevens bewaard?': 'Où nos données sont-elles conservées ?', 'Wat omvat de eenmalige opstart?': 'Que comprend le démarrage initial ?', 'Kunnen we bestaande contractgegevens importeren?': 'Pouvons-nous importer nos contrats existants ?', 'Kunnen we later van pakket veranderen?': 'Pouvons-nous changer de formule ultérieurement ?', 'Werkt Tender Insights met ons ERP- of ticketsysteem?': 'Tender Insights fonctionne-t-il avec notre ERP ou outil de ticketing ?', "Hoe worden SLA's en KPI's opgevolgd?": 'Comment les SLA et KPI sont-ils suivis ?', 'Welke ondersteuning is inbegrepen?': 'Quel support est inclus ?', 'Wat gebeurt er met onze gegevens bij het einde van de samenwerking?': 'Que deviennent nos données à la fin de la collaboration ?',
     'Benieuwd hoe Tender Insights werkt met uw contracten?': 'Envie de voir Tender Insights à l’œuvre sur vos contrats ?', 'Vraag een demonstratie aan of bespreek welk pakket aansluit bij uw contractportfolio.': 'Demandez une démonstration ou identifiez la formule adaptée à votre portefeuille.', 'Demo aanvragen': 'Demander une démo'
     ,'Tot 10 lopende contracten': 'Jusqu’à 10 contrats actifs', 'Tot 25 lopende contracten': 'Jusqu’à 25 contrats actifs', 'Onbeperkt contracten': 'Contrats illimités', 'Alles uit Basis': 'Tout le plan Base', 'Alles uit Professioneel': 'Tout le plan Professionnel', 'Looptijd, verlengingen en beslissingsmomenten': 'Durées, prolongations et moments de décision', 'Verbruik tegenover het maximum, met voorspelling': 'Consommation par rapport au plafond, avec prévision', 'Signalen en acties met opvolging': 'Signaux et actions avec suivi', 'Invoer via formulier en Excel': 'Saisie via formulaire et Excel', 'Support per mail binnen 2 werkdagen': 'Support par e-mail sous 2 jours ouvrables', "SLA's zelf berekend en leveranciersrapporten gecontroleerd": 'SLA calculés et rapports fournisseurs vérifiés', "KPI's, leveranciersevaluatie en beslissingsfiche": 'KPI, évaluation fournisseur et fiche de décision', 'Prijsindexatie en controle van factuurprijzen': 'Indexation et contrôle des prix facturés', '1 koppeling met ERP of ticketsysteem': '1 intégration ERP ou ticketing', 'Opleiding van een halve dag': 'Formation d’une demi-journée', 'Volledige eigen huisstijl': 'Identité visuelle complète', 'Opleiding van één dag en opvolgmoment': 'Formation d’une journée et session de suivi', 'Prioritaire support binnen 4 werkuren': 'Support prioritaire sous 4 heures ouvrables',
+    'Alle koppelingen: Business Central, Dynamics 365, SAP, Adfinity, Jira, ServiceNow': 'Toutes les intégrations : Business Central, Dynamics 365, SAP, Adfinity, Jira et ServiceNow',
     'Hosting in de EU, gegevens per organisatie gescheiden': 'Hébergement dans l’UE, données séparées par organisation', 'Dagelijkse versleutelde back-up en herstel': 'Sauvegarde chiffrée quotidienne et restauration', 'Bij elk cijfer de bron, datum en wijzigingshistoriek': 'Source, date et historique pour chaque chiffre',
+    'Verkennen': 'Explorer', 'Diensten': 'Services', 'Sectoren': 'Secteurs', 'Wettelijke vermeldingen': 'Mentions légales',
     'Nee. U betaalt per organisatie en elk pakket bevat onbeperkt gebruikers. Zo kunnen alle betrokken diensten samenwerken zonder bijkomende licentiekosten per persoon.': 'Non. Vous payez par organisation et chaque formule comprend un nombre illimité d’utilisateurs. Tous les services concernés peuvent collaborer sans coût de licence supplémentaire par personne.',
     'De toepassing wordt gehost in de Europese Unie. Gegevens worden per organisatie logisch gescheiden, dagelijkse back-ups worden versleuteld bewaard en toegang wordt volgens rollen en rechten beheerd.': 'L’application est hébergée dans l’Union européenne. Les données sont séparées par organisation, les sauvegardes quotidiennes sont chiffrées et les accès sont gérés par rôles et autorisations.',
     'We richten uw omgeving in, configureren gebruikers en basisrechten en begeleiden de eerste gegevensimport. Afhankelijk van het pakket worden koppelingen en huisstijl ingesteld. De opstart wordt afgerond met een opleiding.': 'Nous configurons votre environnement, les utilisateurs et les droits de base et accompagnons le premier import. Selon la formule, les intégrations et l’identité visuelle sont configurées. Une formation clôture le démarrage.',
@@ -144,6 +153,7 @@ const pageTranslations = {
     'Functionele specificaties': 'Functional specifications', 'Selectie en gunning': 'Selection and award', 'SLA, TCO en exit': 'SLA, TCO and exit',
     'Stakeholders en behoefte': 'Stakeholders and needs', 'Markt en oplossingsruimte': 'Market and solution space', 'Van keuzes naar bestek': 'From choices to specifications',
     'Bespreek een leertraject': 'Discuss a learning path', 'Tender Insights tarieven': 'Tender Insights pricing', 'Offerte aanvragen': 'Request a quote', 'Meest gekozen': 'Most popular',
+    'Volg contracten en raamovereenkomsten op in één overzicht. Iedereen die moet meekijken — aankoop, financiën, IT en directie — krijgt toegang zonder meerprijs.': 'Track contracts and framework agreements in one overview. Everyone who needs visibility — procurement, finance, IT and leadership — gets access at no extra cost.',
     'Basis': 'Basic', 'Professioneel': 'Professional', 'Eenmalige opstart': 'One-time setup', 'In elk pakket': 'Included in every plan', 'Onbeperkt gebruikers': 'Unlimited users',
     'Nederlands, Frans en Engels': 'Dutch, French and English', 'Alle updates zonder meerprijs': 'All updates included',
     'Voor organisaties met een beperkte contractportefeuille en een duidelijke behoefte aan centrale opvolging.': 'For organisations with a limited contract portfolio and a clear need for centralised follow-up.',
@@ -153,7 +163,9 @@ const pageTranslations = {
     'Betalen we per gebruiker?': 'Do we pay per user?', 'Waar worden onze gegevens bewaard?': 'Where is our data stored?', 'Wat omvat de eenmalige opstart?': 'What is included in the one-time setup?', 'Kunnen we bestaande contractgegevens importeren?': 'Can we import existing contract data?', 'Kunnen we later van pakket veranderen?': 'Can we change plans later?', 'Werkt Tender Insights met ons ERP- of ticketsysteem?': 'Does Tender Insights work with our ERP or ticketing system?', "Hoe worden SLA's en KPI's opgevolgd?": 'How are SLAs and KPIs monitored?', 'Welke ondersteuning is inbegrepen?': 'What support is included?', 'Wat gebeurt er met onze gegevens bij het einde van de samenwerking?': 'What happens to our data when the service ends?',
     'Benieuwd hoe Tender Insights werkt met uw contracten?': 'Want to see Tender Insights working with your contracts?', 'Vraag een demonstratie aan of bespreek welk pakket aansluit bij uw contractportfolio.': 'Request a demonstration or discuss which plan fits your contract portfolio.', 'Demo aanvragen': 'Request a demo'
     ,'Tot 10 lopende contracten': 'Up to 10 active contracts', 'Tot 25 lopende contracten': 'Up to 25 active contracts', 'Onbeperkt contracten': 'Unlimited contracts', 'Alles uit Basis': 'Everything in Basic', 'Alles uit Professioneel': 'Everything in Professional', 'Looptijd, verlengingen en beslissingsmomenten': 'Terms, extensions and decision points', 'Verbruik tegenover het maximum, met voorspelling': 'Spend against the maximum, with forecast', 'Signalen en acties met opvolging': 'Signals and actions with follow-up', 'Invoer via formulier en Excel': 'Data entry through forms and Excel', 'Support per mail binnen 2 werkdagen': 'Email support within 2 business days', "SLA's zelf berekend en leveranciersrapporten gecontroleerd": 'SLAs calculated and supplier reports verified', "KPI's, leveranciersevaluatie en beslissingsfiche": 'KPIs, supplier evaluation and decision sheet', 'Prijsindexatie en controle van factuurprijzen': 'Price indexation and invoice price checks', '1 koppeling met ERP of ticketsysteem': '1 ERP or ticketing integration', 'Opleiding van een halve dag': 'Half-day training', 'Volledige eigen huisstijl': 'Full custom branding', 'Opleiding van één dag en opvolgmoment': 'One-day training and follow-up session', 'Prioritaire support binnen 4 werkuren': 'Priority support within 4 business hours',
+    'Alle koppelingen: Business Central, Dynamics 365, SAP, Adfinity, Jira, ServiceNow': 'All integrations: Business Central, Dynamics 365, SAP, Adfinity, Jira and ServiceNow',
     'Hosting in de EU, gegevens per organisatie gescheiden': 'EU hosting with data separated by organisation', 'Dagelijkse versleutelde back-up en herstel': 'Daily encrypted backup and recovery', 'Bij elk cijfer de bron, datum en wijzigingshistoriek': 'Source, date and change history for every figure',
+    'Verkennen': 'Explore', 'Diensten': 'Services', 'Sectoren': 'Sectors', 'Wettelijke vermeldingen': 'Legal notice',
     'Nee. U betaalt per organisatie en elk pakket bevat onbeperkt gebruikers. Zo kunnen alle betrokken diensten samenwerken zonder bijkomende licentiekosten per persoon.': 'No. You pay per organisation and every plan includes unlimited users, so all relevant teams can collaborate without additional per-user licence fees.',
     'De toepassing wordt gehost in de Europese Unie. Gegevens worden per organisatie logisch gescheiden, dagelijkse back-ups worden versleuteld bewaard en toegang wordt volgens rollen en rechten beheerd.': 'The application is hosted in the European Union. Data is logically separated by organisation, daily backups are encrypted and access is managed through roles and permissions.',
     'We richten uw omgeving in, configureren gebruikers en basisrechten en begeleiden de eerste gegevensimport. Afhankelijk van het pakket worden koppelingen en huisstijl ingesteld. De opstart wordt afgerond met een opleiding.': 'We configure your environment, users and basic permissions and guide the first data import. Depending on the plan, integrations and branding are configured. The setup concludes with training.',
@@ -175,8 +187,9 @@ function applyLanguage(language) {
   });
   if (siteLanguage !== 'nl') {
     const translations = pageTranslations[siteLanguage];
-    document.querySelectorAll('main h1, main h2, main h3, main p, main li, main a, main span, main summary').forEach((element) => {
+    document.querySelectorAll('main h1, main h2, main h3, main p, main li, main a, main span, main summary, main label, main small, main option, main strong, main button, footer h2, footer a, footer span').forEach((element) => {
       if (element.children.length) return;
+      if (element.matches('[data-nl][data-fr][data-en]')) return;
       const source = element.textContent.trim();
       if (!element.dataset.nlSource) element.dataset.nlSource = source;
       const translated = translations[element.dataset.nlSource];
@@ -197,6 +210,14 @@ function applyLanguage(language) {
     const key = original.match(/Product|Produit/) ? 'products' : original.match(/Consult|Conseil/) ? 'consultancy' : original.match(/Academ|Acad/) ? 'academy' : original.match(/Insight|Analyse/) ? 'insights' : original.match(/Over ons|About us|À propos/) ? 'about' : original.match(/Contact/) ? 'contact' : null;
     if (key) link.textContent = labels[key];
   });
+  const ui = uiLabels[siteLanguage];
+  const skipLink = document.querySelector('.skip-link');
+  if (skipLink) skipLink.textContent = ui.skip;
+  if (menuLabel) menuLabel.textContent = menuButton?.getAttribute('aria-expanded') === 'true' ? ui.closeMenu : ui.openMenu;
+  const languageLabel = document.querySelector('.language-picker label');
+  const languageSelect = document.querySelector('#site-language');
+  if (languageLabel) languageLabel.textContent = ui.language;
+  if (languageSelect) languageSelect.setAttribute('aria-label', ui.chooseLanguage);
   const selector = document.querySelector('#site-language');
   if (selector) selector.value = siteLanguage;
 }
