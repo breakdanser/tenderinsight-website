@@ -48,7 +48,8 @@ if (year) year.textContent = new Date().getFullYear();
 // Sitebrede routes en taalkeuze. De browser-/Windows-taal geldt bij het eerste bezoek.
 const supportedLanguages = ['nl', 'fr', 'en'];
 const detectedLanguage = (navigator.language || 'nl').slice(0, 2).toLowerCase();
-let siteLanguage = localStorage.getItem('tenderInsightLanguage') || (supportedLanguages.includes(detectedLanguage) ? detectedLanguage : 'en');
+const languageLocked = document.body.classList.contains('knowledge-base-page');
+let siteLanguage = languageLocked ? 'nl' : localStorage.getItem('tenderInsightLanguage') || (supportedLanguages.includes(detectedLanguage) ? detectedLanguage : 'en');
 
 const pagePrefix = window.location.pathname.includes('/insights/') ? '../' : '';
 const mainRoutes = {
@@ -67,9 +68,9 @@ const navigationLabels = {
 };
 
 const uiLabels = {
-  nl: { skip: 'Ga naar de inhoud', openMenu: 'Menu openen', closeMenu: 'Menu sluiten', language: 'Taal', chooseLanguage: 'Kies uw taal' },
-  fr: { skip: 'Aller au contenu', openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu', language: 'Langue', chooseLanguage: 'Choisissez votre langue' },
-  en: { skip: 'Skip to content', openMenu: 'Open menu', closeMenu: 'Close menu', language: 'Language', chooseLanguage: 'Choose your language' }
+  nl: { skip: 'Ga naar de inhoud', openMenu: 'Menu openen', closeMenu: 'Menu sluiten', language: 'Taal', chooseLanguage: 'Kies uw taal', openApp: 'Naar de app' },
+  fr: { skip: 'Aller au contenu', openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu', language: 'Langue', chooseLanguage: 'Choisissez votre langue', openApp: 'Ouvrir l’application' },
+  en: { skip: 'Skip to content', openMenu: 'Open menu', closeMenu: 'Close menu', language: 'Language', chooseLanguage: 'Choose your language', openApp: 'Open the app' }
 };
 
 const pageTranslations = {
@@ -115,6 +116,7 @@ const pageTranslations = {
     'Alle koppelingen: Business Central, Dynamics 365, SAP, Adfinity, Jira, ServiceNow': 'Toutes les intégrations : Business Central, Dynamics 365, SAP, Adfinity, Jira et ServiceNow',
     'Hosting in de EU, gegevens per organisatie gescheiden': 'Hébergement dans l’UE, données séparées par organisation', 'Dagelijkse versleutelde back-up en herstel': 'Sauvegarde chiffrée quotidienne et restauration', 'Bij elk cijfer de bron, datum en wijzigingshistoriek': 'Source, date et historique pour chaque chiffre',
     'Verkennen': 'Explorer', 'Diensten': 'Services', 'Sectoren': 'Secteurs', 'Wettelijke vermeldingen': 'Mentions légales',
+    'Open Tender Insights': 'Ouvrir Tender Insights', 'Beheerderskennisbank': 'Base de connaissances administrateur',
     'Nee. U betaalt per organisatie en elk pakket bevat onbeperkt gebruikers. Zo kunnen alle betrokken diensten samenwerken zonder bijkomende licentiekosten per persoon.': 'Non. Vous payez par organisation et chaque formule comprend un nombre illimité d’utilisateurs. Tous les services concernés peuvent collaborer sans coût de licence supplémentaire par personne.',
     'De toepassing wordt gehost in de Europese Unie. Gegevens worden per organisatie logisch gescheiden, dagelijkse back-ups worden versleuteld bewaard en toegang wordt volgens rollen en rechten beheerd.': 'L’application est hébergée dans l’Union européenne. Les données sont séparées par organisation, les sauvegardes quotidiennes sont chiffrées et les accès sont gérés par rôles et autorisations.',
     'We richten uw omgeving in, configureren gebruikers en basisrechten en begeleiden de eerste gegevensimport. Afhankelijk van het pakket worden koppelingen en huisstijl ingesteld. De opstart wordt afgerond met een opleiding.': 'Nous configurons votre environnement, les utilisateurs et les droits de base et accompagnons le premier import. Selon la formule, les intégrations et l’identité visuelle sont configurées. Une formation clôture le démarrage.',
@@ -166,6 +168,7 @@ const pageTranslations = {
     'Alle koppelingen: Business Central, Dynamics 365, SAP, Adfinity, Jira, ServiceNow': 'All integrations: Business Central, Dynamics 365, SAP, Adfinity, Jira and ServiceNow',
     'Hosting in de EU, gegevens per organisatie gescheiden': 'EU hosting with data separated by organisation', 'Dagelijkse versleutelde back-up en herstel': 'Daily encrypted backup and recovery', 'Bij elk cijfer de bron, datum en wijzigingshistoriek': 'Source, date and change history for every figure',
     'Verkennen': 'Explore', 'Diensten': 'Services', 'Sectoren': 'Sectors', 'Wettelijke vermeldingen': 'Legal notice',
+    'Open Tender Insights': 'Open Tender Insights', 'Beheerderskennisbank': 'Administrator knowledge base',
     'Nee. U betaalt per organisatie en elk pakket bevat onbeperkt gebruikers. Zo kunnen alle betrokken diensten samenwerken zonder bijkomende licentiekosten per persoon.': 'No. You pay per organisation and every plan includes unlimited users, so all relevant teams can collaborate without additional per-user licence fees.',
     'De toepassing wordt gehost in de Europese Unie. Gegevens worden per organisatie logisch gescheiden, dagelijkse back-ups worden versleuteld bewaard en toegang wordt volgens rollen en rechten beheerd.': 'The application is hosted in the European Union. Data is logically separated by organisation, daily backups are encrypted and access is managed through roles and permissions.',
     'We richten uw omgeving in, configureren gebruikers en basisrechten en begeleiden de eerste gegevensimport. Afhankelijk van het pakket worden koppelingen en huisstijl ingesteld. De opstart wordt afgerond met een opleiding.': 'We configure your environment, users and basic permissions and guide the first data import. Depending on the plan, integrations and branding are configured. The setup concludes with training.',
@@ -180,7 +183,7 @@ const pageTranslations = {
 
 function applyLanguage(language) {
   siteLanguage = supportedLanguages.includes(language) ? language : 'en';
-  localStorage.setItem('tenderInsightLanguage', siteLanguage);
+  if (!languageLocked) localStorage.setItem('tenderInsightLanguage', siteLanguage);
   document.documentElement.lang = siteLanguage;
   document.querySelectorAll('[data-nl][data-fr][data-en]').forEach((element) => {
     element.textContent = element.dataset[siteLanguage];
@@ -218,6 +221,7 @@ function applyLanguage(language) {
   const languageSelect = document.querySelector('#site-language');
   if (languageLabel) languageLabel.textContent = ui.language;
   if (languageSelect) languageSelect.setAttribute('aria-label', ui.chooseLanguage);
+  document.querySelectorAll('.nav-app').forEach((link) => { link.textContent = ui.openApp; });
   const selector = document.querySelector('#site-language');
   if (selector) selector.value = siteLanguage;
 }
@@ -227,7 +231,7 @@ document.querySelectorAll('.primary-nav > a').forEach((link) => {
   if (mainRoutes[label]) link.href = mainRoutes[label];
 });
 
-if (navigation) {
+if (navigation && !document.body.classList.contains('knowledge-base-page')) {
   const picker = document.createElement('div');
   picker.className = 'language-picker';
   picker.innerHTML = '<label for="site-language">Taal</label><select id="site-language" aria-label="Kies uw taal"><option value="nl">NL</option><option value="fr">FR</option><option value="en">EN</option></select>';
