@@ -147,14 +147,15 @@ html{scroll-padding-top:130px}
 .product-link{display:inline-flex;align-items:center;gap:8px;margin-top:13px;color:var(--navy);font-size:12px;font-weight:800}
 .product-link:hover,.product-link:focus-visible{color:var(--red)}
 .language-picker{display:flex;align-items:center;margin-left:4px}.language-picker label{font-size:0}.language-picker label:before{content:'🌐';font-size:15px;margin-right:5px}.language-picker select{border:1px solid #b9cbd7;background:#fff;color:var(--navy);padding:7px 24px 7px 8px;font:600 11px "Segoe UI",Arial,sans-serif;cursor:pointer}
-.primary-nav .nav-app{background:var(--red);color:#fff;padding:10px 16px;white-space:nowrap}.primary-nav .nav-app:hover{background:var(--red-dark);color:#fff}.primary-nav .nav-app:after{display:none}.product-link+.product-link{margin-left:18px}
+.site-header .primary-nav{gap:14px;font-size:13px}.primary-nav .nav-app{background:var(--red);color:#fff;padding:10px 14px;white-space:nowrap}.primary-nav .nav-app:hover{background:var(--red-dark);color:#fff}.primary-nav .nav-app:after{display:none}.product-link+.product-link{margin-left:18px}
+.support-strip{background:#eaf7f0;border-bottom:1px solid #cfe9db}.support-strip-inner{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:30px}.support-strip-inner>div{display:flex;align-items:baseline;gap:16px}.support-strip strong{color:var(--navy);font-size:15px}.support-strip span{color:var(--muted);font-size:13px}.support-strip a{color:var(--navy);font-weight:800;font-size:13px;white-space:nowrap}.support-strip a span[aria-hidden]{color:var(--red);margin-left:8px}
 
 @media(max-width:900px){
   .offer-nav-grid{width:100%;overflow-x:auto;grid-template-columns:repeat(3,minmax(240px,1fr));padding-inline:20px}
   .offer-nav a:first-child{border-left:1px solid var(--line)}
   .offer-grid{grid-template-columns:1fr}
   .offer-card{min-height:0}
-  .primary-nav .language-picker{margin:10px 12px 0}.primary-nav .language-picker select{width:100%;padding:11px}.primary-nav .nav-app{text-align:center;margin-top:8px}.product-link+.product-link{margin-left:0;margin-top:10px}
+  .primary-nav .language-picker{margin:10px 12px 0}.primary-nav .language-picker select{width:100%;padding:11px}.primary-nav .nav-app{text-align:center;margin-top:8px}.product-link+.product-link{margin-left:0;margin-top:10px}.support-strip-inner{padding:16px 0;align-items:flex-start}.support-strip-inner,.support-strip-inner>div{flex-direction:column;gap:6px}
 }
 
 @media(max-width:620px){

@@ -62,9 +62,9 @@ const mainRoutes = {
 };
 
 const navigationLabels = {
-  nl: { products: 'Producten', consultancy: 'Consultancy & Advisory', academy: 'Academy', insights: 'Insights', about: 'Over ons', contact: 'Contact' },
-  fr: { products: 'Produits', consultancy: 'Conseil & Advisory', academy: 'Académie', insights: 'Analyses', about: 'À propos', contact: 'Contact' },
-  en: { products: 'Products', consultancy: 'Consultancy & Advisory', academy: 'Academy', insights: 'Insights', about: 'About us', contact: 'Contact' }
+  nl: { products: 'Producten', consultancy: 'Consultancy & Advisory', academy: 'Academy', insights: 'Insights', about: 'Over ons', knowledge: 'Kennisbank', contact: 'Contact' },
+  fr: { products: 'Produits', consultancy: 'Conseil & Advisory', academy: 'Académie', insights: 'Analyses', about: 'À propos', knowledge: 'Base de connaissances', contact: 'Contact' },
+  en: { products: 'Products', consultancy: 'Consultancy & Advisory', academy: 'Academy', insights: 'Insights', about: 'About us', knowledge: 'Knowledge base', contact: 'Contact' }
 };
 
 const uiLabels = {
@@ -213,6 +213,7 @@ function applyLanguage(language) {
     const key = original.match(/Product|Produit/) ? 'products' : original.match(/Consult|Conseil/) ? 'consultancy' : original.match(/Academ|Acad/) ? 'academy' : original.match(/Insight|Analyse/) ? 'insights' : original.match(/Over ons|About us|À propos/) ? 'about' : original.match(/Contact/) ? 'contact' : null;
     if (key) link.textContent = labels[key];
   });
+  document.querySelectorAll('.nav-knowledge').forEach((link) => { link.textContent = labels.knowledge; });
   const ui = uiLabels[siteLanguage];
   const skipLink = document.querySelector('.skip-link');
   if (skipLink) skipLink.textContent = ui.skip;
@@ -230,6 +231,15 @@ document.querySelectorAll('.primary-nav > a').forEach((link) => {
   const label = link.textContent.trim();
   if (mainRoutes[label]) link.href = mainRoutes[label];
 });
+
+if (navigation && !navigation.querySelector('.nav-knowledge')) {
+  const knowledgeLink = document.createElement('a');
+  knowledgeLink.className = 'nav-knowledge';
+  knowledgeLink.href = `${pagePrefix}kennisbank.html`;
+  knowledgeLink.textContent = navigationLabels[siteLanguage].knowledge;
+  const insertionPoint = navigation.querySelector('.nav-app, .nav-cta, .language-picker');
+  navigation.insertBefore(knowledgeLink, insertionPoint || null);
+}
 
 if (navigation && !document.body.classList.contains('knowledge-base-page')) {
   const picker = document.createElement('div');
